@@ -63,9 +63,16 @@ public class FlightDataService {
           .build();
 
       HttpResponse<String> response = webClient.send(request, HttpResponse.BodyHandlers.ofString());
-      logger.info("Response: {}", response.body());
+      String responseBody = response.body();
+      logger.info("Response: {}", responseBody);
 
-      FlightDataResponse flightDataResponse = objectMapper.readValue(response.body(), FlightDataResponse.class);
+      if (responseBody == null || responseBody.isBlank()) {
+        logger.warn("Received empty response from path: {}", path);
+        return List.of();
+      }
+
+      FlightDataResponse flightDataResponse = objectMapper.readValue(responseBody, FlightDataResponse.class);
+
       return flightDataResponse != null ? flightDataResponse.getAircraft() : List.of();
     } catch (Exception e) {
       logger.error("Failed to fetch flight data from path: {}", path, e);

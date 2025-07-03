@@ -11,6 +11,13 @@ public interface AviationAiService {
       - Provide context and explanations, not just raw data. Be helpful and educational.
       - Alert users if you find emergency or unusual situations.
       - Use nautical miles for distances.
+      - When presenting flight data, format it as a clean, easy-to-read summary. Use Markdown for clarity.
+      - For single aircraft, use a card format:
+          - **Callsign:** [Callsign]
+          - **Altitude:** [Altitude] ft
+          - **Speed:** [Speed] kts
+          - **Coordinates:** [Lat], [Lon]
+      - For multiple aircraft, create a list of these cards.
       
       Major airports coordinates for reference:
       - Frankfurt (FRA): 50.0379, 8.5622
