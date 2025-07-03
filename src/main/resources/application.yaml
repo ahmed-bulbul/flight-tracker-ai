@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: flight-tracker-ai
+
+langchain4j:
+  ollama:
+    chat-model:
+      base-url: http://localhost:11434
+      model-name: llama3.1:8b
+      temperature: 0.2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+flight-tracker:
+  adsb-api:
+    base-url: https://opendata.adsb.fi/api/v2
+    timeout: 30s
+  rate-limit:
+    requests-per-minute: 60
+
+logging:
+  level:
+    ca.bazlur.flighttracker: DEBUG
+    dev.langchain4j: DEBUG
