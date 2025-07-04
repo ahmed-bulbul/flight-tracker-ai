@@ -1,4 +1,4 @@
-package ca.bazlur.flighttracker.sevice;
+package ca.bazlur.flighttracker.service;
 
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.ollama.OllamaChatModel;

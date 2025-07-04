@@ -1,4 +1,4 @@
-package ca.bazlur.flighttracker.sevice;
+package ca.bazlur.flighttracker.service;
 
 import ca.bazlur.flighttracker.model.Aircraft;
 import ca.bazlur.flighttracker.model.FlightDataResponse;

@@ -1,7 +1,7 @@
 package ca.bazlur.flighttracker.controller;
 
 
-import ca.bazlur.flighttracker.sevice.AviationAssistantService;
+import ca.bazlur.flighttracker.service.AviationAssistantService;
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Bucket4j;
 import io.github.bucket4j.Bandwidth;
@@ -52,6 +52,22 @@ public class AviationController {
   @GetMapping("/health")
   public ResponseEntity<String> health() {
     return ResponseEntity.ok("Aviation AI Assistant is ready for takeoff! ✈️");
+  }
+
+  @GetMapping("/examples")
+  public ResponseEntity<String> examples() {
+    String exampleQueries = """
+        ## Try These Example Queries:
+        
+        - "What military aircraft are currently flying?"
+        - "Show me flights near Toronto Pearson International Airport within 20 nautical miles"
+        - "Are there any emergency aircraft right now?"
+        - "Find flight BA123"
+        - "What's flying within 30 nautical miles of New York?"
+        
+        **Tip:** Be specific about locations and use major airport names for best results!
+        """;
+    return ResponseEntity.ok(exampleQueries);
   }
 
   private Bucket createBucket(String key) {

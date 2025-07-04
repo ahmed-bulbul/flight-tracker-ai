@@ -41,7 +41,7 @@
         #chat-container {
             width: 100%;
             max-width: 850px;
-            height: 95vh;
+            max-height: 95vh;
             background: rgba(10, 15, 20, 0.8);
             backdrop-filter: blur(12px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.125);
@@ -157,6 +157,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             outline: none;
             transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         #chat-input:focus {
@@ -297,6 +298,7 @@
                 <div class="chip" data-action="military"><i class="fas fa-jet-fighter"></i> Military</div>
                 <div class="chip" data-action="emergency"><i class="fas fa-truck-medical"></i> Emergency</div>
                 <div class="chip" data-action="callsign"><i class="fas fa-signature"></i> By Callsign</div>
+                <div class="chip" data-action="examples"><i class="fas fa-question-circle"></i> Examples</div>
             </div>
         </div>
     </div>
@@ -384,6 +386,11 @@
                 if (callsign && callsign.trim()) {
                     handleUserQuery(`Find aircraft with callsign ${callsign.trim().toUpperCase()}`);
                 }
+                break;
+            case 'examples':
+                fetch('/api/aviation/examples')
+                    .then(response => response.text())
+                    .then(text => appendMessage(text, 'bot'));
                 break;
         }
     }

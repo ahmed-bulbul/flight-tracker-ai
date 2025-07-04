@@ -1,4 +1,4 @@
-package ca.bazlur.flighttracker.sevice;
+package ca.bazlur.flighttracker.service;
 
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
